@@ -5,7 +5,7 @@ package ru.zzzzzzerg.linden;
 import openfl.utils.JNI;
 import haxe.CallStack;
 
-class Localytics
+class LocalyticsImpl
 {
   private var _localytics : Dynamic = null;
 
@@ -143,5 +143,36 @@ class Localytics
   private static var _tagEventParams : Dynamic = null;
   private static var _tagScreen : Dynamic = null;
 }
+
+typedef Localytics = LocalyticsImpl;
+
+#else
+
+class LocalyticsFallback
+{
+  public function new()
+  {
+  }
+
+  public function start(localyticsKey : String) : Bool
+  {
+  }
+
+  public function stop() : Bool
+  {
+  }
+
+  public function tagEvent(msg : String, ?params : Dynamic = null) : Bool
+  {
+  }
+
+  public function tagScreen(screen : String) : Bool
+  {
+  }
+
+}
+
+typedef Localytics = LocalyticsFallback;
+
 
 #end
