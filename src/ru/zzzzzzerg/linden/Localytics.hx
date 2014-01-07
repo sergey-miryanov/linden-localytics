@@ -156,18 +156,22 @@ class LocalyticsFallback
 
   public function start(localyticsKey : String) : Bool
   {
+    return false;
   }
 
   public function stop() : Bool
   {
+    return false;
   }
 
   public function tagEvent(msg : String, ?params : Dynamic = null) : Bool
   {
+    return false;
   }
 
   public function tagScreen(screen : String) : Bool
   {
+    return false;
   }
 
 }
